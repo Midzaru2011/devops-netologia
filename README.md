@@ -1,2 +1,0 @@
-# devops-netologia.
-# devops-netologia.
