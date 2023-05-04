@@ -28,12 +28,14 @@ ___
 ```shell
 zag1988@ubuntu-2204:~$ vboxmanage --version
 6.1.38_Ubuntur153438
+```
 
 ```shell
 zag1988@ubuntu-2204:~$ vagrant version 
 Installed Version: 2.2.19
 Vagrant was unable to check for the latest version of Vagrant.
 Please check manually at https://www.vagrantup.com
+```
 
 ```shell
 zag1988@ubuntu-2204:~$ ansible --version
@@ -43,11 +45,13 @@ ansible 2.10.8
   ansible python module location = /usr/lib/python3/dist-packages/ansible
   executable location = /usr/bin/ansible
   python version = 3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0]
+```
 
 ```shell
 zag1988@ubuntu-2204:~$ terraform --version
 Terraform v1.4.6
 on linux_amd64
+```
 
 ## Задача 4
 ***Воспроизвести практическую часть лекции самостоятельно:***
