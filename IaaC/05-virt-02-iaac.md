@@ -134,6 +134,7 @@ changed: [server1.netology]
 PLAY RECAP *********************************************************************
 server1.netology           : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1  
 
+```
 ### Затем по SSH подключаемся к созданной ВМ и проверяем работу Docker командой `docker ps`
 
 ```shell
@@ -157,6 +158,7 @@ This system is built by the Bento project by Chef Software
 More information can be found at https://github.com/chef/bento
 Last login: Wed May  3 14:44:23 2023 from 10.0.2.2
 ```
+
 ```shell
 vagrant@server1:~$ docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
