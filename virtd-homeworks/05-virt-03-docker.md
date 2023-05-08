@@ -62,3 +62,20 @@ Docker подходит очень хорошо - готовые образы, �
 Есть так же официальный докер образ для быстрого развертывания приватного реестра образов. Другие процессы CI/CD так же удобнее и быстрее запускат и обслуживать через докер контейнерыю.
 
 ## Задача 3.
+
+```shell
+zag1988@ubuntu-2204:~$ docker run -it -d -v /data:/data --name my-centos centos
+
+Unable to find image 'centos:latest' locally
+
+latest: Pulling from library/centos
+
+a1d0c7532777: Pull complete 
+
+Digest: sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177
+
+Status: Downloaded newer image for centos:latest
+
+5419b27ed3ab6aff3baff302abe99a704915de47512ee65e3353dc3fd88188be
+
+```
