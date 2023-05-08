@@ -1,5 +1,8 @@
+## Задача 1. 
 1. Был скачен официальный образ Nginx  из dockerhub:
-	docker pull docker pull nginx
+```
+docker pull docker pull nginx
+```
 2. Сформировали Dockerfile, указав исходный образ для сборки и инструкцию RUN для записи html-кода в index.html
     FROM nginx
     RUN echo "<html><head>Hey, Netology</head><body><h1>I’m DevOps Engineer!</h1></body></html>" >/usr/share/nginx/html/index.html
