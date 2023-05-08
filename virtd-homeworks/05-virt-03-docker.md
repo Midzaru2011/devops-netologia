@@ -4,8 +4,10 @@
 docker pull docker pull nginx
 ```
 2. Сформировали Dockerfile, указав исходный образ для сборки и инструкцию RUN для записи html-кода в index.html
-    FROM nginx
-    RUN echo "<html><head>Hey, Netology</head><body><h1>I’m DevOps Engineer!</h1></body></html>" >/usr/share/nginx/html/index.html
+```
+FROM nginx
+RUN echo "<html><head>Hey, Netology</head><body><h1>I’m DevOps Engineer!</h1></body></html>" >/usr/share/nginx/html/index.html
+```
 3. Запустил сборку образа, указав тэг образа:
     sudo docker build -t midzaru2011/my-nginx:1.0 .
 4. Запускаем контейнер из созданного образа, используя флаги -d (запуск контейнера в режиме демона), -p(маппинг портов локального хоста и контейнера):
