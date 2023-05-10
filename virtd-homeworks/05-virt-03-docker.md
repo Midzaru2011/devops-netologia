@@ -90,3 +90,26 @@ Hi, it is test file!
 
 ```
 
+Запуск контейнера из образа debian:
+
+```shell
+zag1988@ubuntu-2204:~$ docker run -it -d -v /data:/data --name my-debian debian
+
+f80985393e702b34c6ac3f7f0d183ae70ce8c7b9e7fcdd6836bb06451d65127c
+
+```
+
+Листинг каталога /data в контейнере my-debian
+
+```shell
+root@f80985393e70:/data# ls -l
+
+total 4
+
+-rw-r--r-- 1 root root 21 May  8 09:12 myfile.html
+
+root@f80985393e70:/data# exit
+
+exit
+
+```
