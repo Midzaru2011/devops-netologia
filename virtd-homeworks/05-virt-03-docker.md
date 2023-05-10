@@ -113,3 +113,32 @@ root@f80985393e70:/data# exit
 exit
 
 ```
+#### Задача 4.
+Сборка образа контейнера из dockerfile:
+
+```shell
+zag1988@ubuntu-2204:~/docker-nginx/task4$ sudo docker build -t midzaru2011/ansible:1.01 .
+
+[+] Building 242.7s (9/9) FINISHED                                                                                                                         
+ => [internal] load .dockerignore                                                                                                                                                                     0.0s
+ => => transferring context: 2B                                                                                                                                                                       0.0s
+ => [internal] load build definition from dockerfile                                                                                                                                                  0.0s
+ => => transferring dockerfile: 1.10kB                                                                                                                                                                0.0s
+ => [internal] load metadata for docker.io/library/alpine:3.14                                                                                                                                        1.8s
+ => [auth] library/alpine:pull token for registry-1.docker.io                                                                                                                                         0.0s
+ => [1/4] FROM docker.io/library/alpine:3.14@sha256:0f2d5c38dd7a4f4f733e688e3a6733cb5ab1ac6e3cb4603a5dd564e5bfb80eed                                                                                  0.8s
+ => => resolve docker.io/library/alpine:3.14@sha256:0f2d5c38dd7a4f4f733e688e3a6733cb5ab1ac6e3cb4603a5dd564e5bfb80eed                                                                                  0.0s
+ => => sha256:0f2d5c38dd7a4f4f733e688e3a6733cb5ab1ac6e3cb4603a5dd564e5bfb80eed 1.64kB / 1.64kB                                                                                                        0.0s
+ => => sha256:71859b0c62df47efaeae4f93698b56a8dddafbf041778fd668bbd1ab45a864f8 528B / 528B                                                                                                            0.0s
+ => => sha256:9e179bacf43c4d3428d57cf459799ba0285b901945f9eccb17b6da056d3532c7 1.47kB / 1.47kB                                                                                                        0.0s
+ => => sha256:f7dab3ab2d6ec29aa28769bec35331fb485b5837501b1e8556413d8b5a79c9c8 2.83MB / 2.83MB                                                                                                        0.7s
+ => => extracting sha256:f7dab3ab2d6ec29aa28769bec35331fb485b5837501b1e8556413d8b5a79c9c8                                                                                                             0.1s
+ => [2/4] RUN CARGO_NET_GIT_FETCH_WITH_CLI=1 &&     apk --no-cache add         sudo         python3        py3-pip         openssl         ca-certificates         sshpass         openssh-client   236.1s
+ => [3/4] RUN mkdir /ansible &&     mkdir -p /etc/ansible &&     echo 'localhost' > /etc/ansible/hosts                                                                                                0.4s
+ => [4/4] WORKDIR /ansible                                                                                                                                                                            0.0s 
+ => exporting to image                                                                                                                                                                                3.5s 
+ => => exporting layers                                                                                                                                                                               3.5s 
+ => => writing image sha256:cf4cd72908305b6e1aa167a1f8f3e1a3eb9ef9308165f97942f49265de9d91a4                                                                                                          0.0s 
+ => => naming to docker.io/midzaru2011/ansible:1.01                                             
+ 
+ ```
