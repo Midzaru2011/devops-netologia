@@ -142,3 +142,15 @@ zag1988@ubuntu-2204:~/docker-nginx/task4$ sudo docker build -t midzaru2011/ansib
  => => naming to docker.io/midzaru2011/ansible:1.01                                             
  
  ```
+Публикация образа на DockerHub
+
+```shell
+zag1988@ubuntu-2204:~/docker-nginx/task4$ docker push midzaru2011/ansible:1.01
+The push refers to repository [docker.io/midzaru2011/ansible]
+5f70bf18a086: Mounted from etidev/elk-docker 
+8b76dd874751: Pushed 
+661992bcb220: Pushed 
+9733ccc39513: Mounted from library/alpine 
+1.01: digest: sha256:7b8479d3c994db7f0110f94ef3022f4760df9017b9a49afb8731d447fa408484 size: 1153
+```
+Ссылка [midzaru2011] (https://hub.docker.com/r/midzaru2011/ansible)
