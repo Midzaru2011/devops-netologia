@@ -153,4 +153,4 @@ The push refers to repository [docker.io/midzaru2011/ansible]
 9733ccc39513: Mounted from library/alpine 
 1.01: digest: sha256:7b8479d3c994db7f0110f94ef3022f4760df9017b9a49afb8731d447fa408484 size: 1153
 ```
-Ссылка [midzaru2011] (https://hub.docker.com/r/midzaru2011/ansible)
+Ссылка [midzaru2011](https://hub.docker.com/r/midzaru2011/ansible)
