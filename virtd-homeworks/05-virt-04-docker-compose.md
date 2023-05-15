@@ -1,3 +1,5 @@
 ### Задача 1
 Создайте собственный образ любой операционной системы (например ubuntu-20.04) с помощью Packer (инструкция).
-![image](https://github.com/Midzaru2011/devops-netologia/assets/102572340/5d1df377-1816-4385-a142-20654c95be7b)
+-Скриншот страницы с созданным образом из личного кабинета YandexCloud.
+![image](https://github.com/Midzaru2011/devops-netologia/assets/102572340/8e9ddba6-0a3c-4704-8683-9e065a04bc4b)
+
