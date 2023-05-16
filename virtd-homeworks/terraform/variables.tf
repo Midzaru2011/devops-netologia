@@ -17,5 +17,5 @@ variable "centos-7-base" {
 }
 
 variable "yandex_token" {
-  default = "y0_AgAAAAAG2ukMAATuwQAAAADWA5H3f9ZKPKQdQq-sUuF9fpSzmGk8hsg"
+  default = ""
 }
