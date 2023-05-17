@@ -150,7 +150,7 @@ Build 'yandex' finished after 1 minute 59 seconds.
 Создать вашу первую виртуальную машину в Яндекс.Облаке.
 
 -Скриншот созданной ВМ с помощью Terraform: 
-![image](https://github.com/Midzaru2011/devops-netologia/assets/102572340/ce14f3e2-b167-4ecd-9650-a7879c859b78)
+![image](images/Снимок2.PNG)
 
 
 ```shell
@@ -281,5 +281,5 @@ b6ccc77ac3fd   prom/alertmanager:v0.20.0          "/bin/alertmanager -…"   30 
 
 Скриншот поднятого сервиса Grafana на созданной через terraform VM:
 
-![image](https://github.com/Midzaru2011/devops-netologia/assets/102572340/b22d39bc-f998-485b-935d-7a2f0c02390f)
+![image](images/Снимок3.PNG)
 
