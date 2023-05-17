@@ -278,3 +278,8 @@ b6ccc77ac3fd   prom/alertmanager:v0.20.0          "/bin/alertmanager -…"   30 
 2. Используйте для авторизации логин и пароль из .env-file.
 3. Изучите доступный интерфейс, найдите в интерфейсе автоматически созданные docker-compose-панели с графиками(dashboards).
 4. Подождите 5-10 минут, чтобы система мониторинга успела накопить данные.
+
+Скриншот поднятого сервиса Grafana на созданной через terraform VM:
+
+![image](https://github.com/Midzaru2011/devops-netologia/assets/102572340/b22d39bc-f998-485b-935d-7a2f0c02390f)
+
