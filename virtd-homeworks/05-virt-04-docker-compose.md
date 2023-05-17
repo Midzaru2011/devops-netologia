@@ -150,20 +150,14 @@ Build 'yandex' finished after 1 minute 59 seconds.
 Создать вашу первую виртуальную машину в Яндекс.Облаке.
 
 -Скриншот созданной ВМ с помощью Terraform: 
-![image](https://github.com/Midzaru2011/devops-netologia/assets/102572340/f88cf7bc-a848-46ea-8cec-10e4b13aba77)
+![image](https://github.com/Midzaru2011/devops-netologia/assets/102572340/ce14f3e2-b167-4ecd-9650-a7879c859b78)
+
 
 ```shell
-zag1988@ubuntu-2204:~/Terraform/terraform$ terraform apply
-
-yandex_vpc_network.default: Refreshing state... [id=enpgls1567q0hn5grlao]
-
-yandex_vpc_subnet.default: Refreshing state... [id=e9b0oouvbpguabjutodv]
-
-
+zag1988@ubuntu-2204:~/Terraform/terraform$ terraform apply -auto-approve
+yandex_vpc_network.default: Refreshing state... [id=enpcvg2f62cjmkc7d74s]
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
-
   + create
-
 Terraform will perform the following actions:
   # yandex_compute_instance.node01 will be created
   + resource "yandex_compute_instance" "node01" {
@@ -176,14 +170,13 @@ Terraform will perform the following actions:
       + id                        = (known after apply)
       + metadata                  = {
           + "ssh-keys" = <<-EOT
-                centos:"centos"
+                centos:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILc4+LMgEeUZLBqtvUAi0lVLLJugXMSKd31Os62fwGGR zag1988@ubuntu-2204
             EOT
         }
       + name                      = "node01"
       + network_acceleration_type = "standard"
       + platform_id               = "standard-v1"
       + service_account_id        = (known after apply)
-
       + status                    = (known after apply)
       + zone                      = "ru-central1-a"
       + boot_disk {
@@ -196,7 +189,7 @@ Terraform will perform the following actions:
               + description = (known after apply)
               + image_id    = "fd8diifib4139251duuu"
               + name        = "root-node01"
-              + size        = 50
+              + size        = 10
               + snapshot_id = (known after apply)
               + type        = "network-nvme"
             }
@@ -212,30 +205,76 @@ Terraform will perform the following actions:
           + nat_ip_address     = (known after apply)
           + nat_ip_version     = (known after apply)
           + security_group_ids = (known after apply)
-          + subnet_id          = "e9b0oouvbpguabjutodv"
+          + subnet_id          = "e9b97vo6tnokrfnsjpjb"
         }
       + resources {
           + core_fraction = 100
-          + cores         = 8
-          + memory        = 8
+          + cores         = 2
+          + memory        = 2
         }
     }
-Plan: 1 to add, 0 to change, 0 to destroy.
+  # yandex_vpc_network.terraform-network will be created
+  + resource "yandex_vpc_network" "terraform-network" {
+      + created_at                = (known after apply)
+      + default_security_group_id = (known after apply)
+      + folder_id                 = (known after apply)
+      + id                        = (known after apply)
+      + labels                    = (known after apply)
+      + name                      = "my-terraform-network"
+      + subnet_ids                = (known after apply)
+    }
+  # yandex_vpc_subnet.my-terraform-network-ru-central1-a will be created
+  + resource "yandex_vpc_subnet" "my-terraform-network-ru-central1-a" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "subnet"
+      + network_id     = "enpejf9okfjfjd53275d"
+      + v4_cidr_blocks = [
+          + "192.168.101.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-a"
+    }
+Plan: 3 to add, 0 to change, 0 to destroy.
 Changes to Outputs:
-  ~ external_ip_address_node01_yandex_cloud = "158.160.61.59" -> (known after apply)
-  ~ internal_ip_address_node01_yandex_cloud = "192.168.101.25" -> (known after apply)
-Do you want to perform these actions?
-  Terraform will perform the actions described above.
-  Only 'yes' will be accepted to approve.
-  Enter a value: yes
+  ~ external_ip_address_node01_yandex_cloud = "84.201.131.238" -> (known after apply)
+  ~ internal_ip_address_node01_yandex_cloud = "192.168.101.28" -> (known after apply)
+yandex_vpc_network.terraform-network: Creating...
+yandex_vpc_subnet.my-terraform-network-ru-central1-a: Creating...
 yandex_compute_instance.node01: Creating...
+yandex_vpc_network.terraform-network: Creation complete after 0s [id=enpkegbrge9goe4aq9eh]
+yandex_vpc_subnet.my-terraform-network-ru-central1-a: Creation complete after 1s [id=e9bjbj4s3c8vd819jfp8]
 yandex_compute_instance.node01: Still creating... [10s elapsed]
 yandex_compute_instance.node01: Still creating... [20s elapsed]
 yandex_compute_instance.node01: Still creating... [30s elapsed]
 yandex_compute_instance.node01: Still creating... [40s elapsed]
-yandex_compute_instance.node01: Creation complete after 49s [id=fhmmka9t401199082sn4]
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+yandex_compute_instance.node01: Still creating... [50s elapsed]
+yandex_compute_instance.node01: Creation complete after 58s [id=fhmevbrso7tkj1a09fpt]
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 Outputs:
-external_ip_address_node01_yandex_cloud = "158.160.102.74"
-internal_ip_address_node01_yandex_cloud = "192.168.101.7"
+external_ip_address_node01_yandex_cloud = "158.160.57.203"
+internal_ip_address_node01_yandex_cloud = "10.128.0.29"
 ```
+###  Задача 3.
+
+С помощью Ansible и Docker Compose разверните на виртуальной машине из предыдущего задания систему мониторинга на основе Prometheus/Grafana. Используйте Ansible-код в директории (src/ansible).
+
+```shell
+[centos@node01 .ssh]$ sudo docker ps
+CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                    PORTS                                                                              NAMES
+9df4f3ba06ff   prom/pushgateway:v1.2.0            "/bin/pushgateway"       30 minutes ago   Up 30 minutes             9091/tcp                                                                           pushgateway
+374d2b9f93a9   gcr.io/cadvisor/cadvisor:v0.47.0   "/usr/bin/cadvisor -…"   30 minutes ago   Up 30 minutes (healthy)   8080/tcp                                                                           cadvisor
+f4eaf0a70fdc   stefanprodan/caddy                 "/sbin/tini -- caddy…"   30 minutes ago   Up 30 minutes             0.0.0.0:3000->3000/tcp, 0.0.0.0:9090-9091->9090-9091/tcp, 0.0.0.0:9093->9093/tcp   caddy
+b6ccc77ac3fd   prom/alertmanager:v0.20.0          "/bin/alertmanager -…"   30 minutes ago   Up 30 minutes             9093/tcp                                                                           alertmanager
+66688e0beb05   prom/node-exporter:v0.18.1         "/bin/node_exporter …"   30 minutes ago   Up 30 minutes             9100/tcp                                                                           nodeexporter
+4e4a5a0e5665   prom/prometheus:v2.17.1            "/bin/prometheus --c…"   30 minutes ago   Up 30 minutes             9090/tcp                                                                           prometheus
+594ef2a6055a   grafana/grafana:7.4.2              "/run.sh"                30 minutes ago   Up 30 minutes             3000/tcp                                                                           grafana
+```
+
+### Задача 4.
+1. Откройте веб-браузер, зайдите на страницу http://<внешний_ip_адрес_вашей_ВМ>:3000.
+2. Используйте для авторизации логин и пароль из .env-file.
+3. Изучите доступный интерфейс, найдите в интерфейсе автоматически созданные docker-compose-панели с графиками(dashboards).
+4. Подождите 5-10 минут, чтобы система мониторинга успела накопить данные.
