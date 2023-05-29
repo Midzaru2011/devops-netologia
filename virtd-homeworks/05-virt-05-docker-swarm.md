@@ -48,19 +48,6 @@ xead2g4vcyhb   swarm_monitoring_prometheus         replicated   1/1        stefa
 hysyiiit95ho   swarm_monitoring_unsee              replicated   1/1        cloudflare/unsee:v0.8.0                        
 ```
 
-Задача 4 (*)
-Выполните на лидере Docker Swarm-кластера команду, указанную ниже, и дайте письменное описание её функционала — что она делает и зачем нужна:
 
-```shell
-[centos@node01 ~]$ sudo docker swarm update --autolock=true
-Swarm updated.
-To unlock a swarm manager after it restarts, run the `docker swarm unlock`
-command and provide the following key:
-
-    SWMKEY-1-8r37RBr68PDsHwu68nsXa0nlCWxB/Taj0JpyWYo4XnA
-
-Please remember to store this key in a password manager, since without it you
-will not be able to restart the manager.
-```
 
 
