@@ -8,3 +8,4 @@
 *.box
 # own secret vars store.
 personal.auto.tfvars
+*variables.tf
