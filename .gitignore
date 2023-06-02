@@ -9,4 +9,4 @@
 # own secret vars store.
 personal.auto.tfvars
 
-variables.tf
+~devops-netologia/ter-homeworks copy/02/src/variables.tf
