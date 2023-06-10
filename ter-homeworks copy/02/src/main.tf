@@ -16,7 +16,7 @@ resource "yandex_compute_instance" "platform" {
   name        = "netology-develop-platform-web"
   platform_id = "standard-v1"
   resources {
-    cores         = 1
+    cores         = 2
     memory        = 1
     core_fraction = 5
   }
@@ -35,7 +35,7 @@ resource "yandex_compute_instance" "platform" {
 
   metadata = {
     serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
+    ssh-keys           = "zag1988:${var.vms_ssh_root_key}"
   }
 
 }
