@@ -8,17 +8,16 @@ resource "yandex_vpc_subnet" "develop" {
   v4_cidr_blocks = var.default_cidr
 }
 
-
 data "yandex_compute_image" "ubuntu" {
-  family = "ubuntu-2004-lts"
+  family = var.vm_web_image
 }
 resource "yandex_compute_instance" "platform" {
   name        = "netology-develop-platform-web"
-  platform_id = "standard-v1"
+  platform_id = var.vm_web_platform
   resources {
-    cores         = 2
-    memory        = 1
-    core_fraction = 5
+    cores         = var.vm_web_resources.cores
+    memory        = var.vm_web_resources.memory
+    core_fraction = var.vm_web_resources.core_fraction
   }
   boot_disk {
     initialize_params {
@@ -26,16 +25,15 @@ resource "yandex_compute_instance" "platform" {
     }
   }
   scheduling_policy {
-    preemptible = true
+    preemptible = var.vm_web_scheduling_policy
   }
   network_interface {
     subnet_id = yandex_vpc_subnet.develop.id
-    nat       = true
+    nat       = var.vm_web_network_interface_nat
   }
 
   metadata = {
     serial-port-enable = 1
-    ssh-keys           = "zag1988:${var.vms_ssh_root_key}"
+    ssh-keys           = "ubuntu:${var.vm_web_ssh_root_key}"
   }
-
 }
