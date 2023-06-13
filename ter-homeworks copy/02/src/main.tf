@@ -12,7 +12,7 @@ data "yandex_compute_image" "ubuntu" {
   family = var.vm_web_image
 }
 resource "yandex_compute_instance" "platform" {
-  name        = "netology-develop-platform-web"
+  name        = local.vm_web
   platform_id = var.vm_web_platform
   resources {
     cores         = var.vm_web_resources.cores
@@ -32,9 +32,9 @@ resource "yandex_compute_instance" "platform" {
     nat       = var.vm_web_network_interface_nat
   }
 
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vm_web_ssh_root_key}"
+   metadata = {
+    serial-port-enable = var.vm_ssh["serial-port-enable"]
+    ssh-keys           = var.vm_ssh["ssh-key"]
   }
 }
 
@@ -43,7 +43,7 @@ data "yandex_compute_image" "ubuntu_db" {
 }
 
 resource "yandex_compute_instance" "platform-1" {
-  name        = "netology-develop-platform-db"
+  name        = local.vm_db
   platform_id = var.vm_db_platform
   resources {
     cores         = var.vm_db_resources.cores
@@ -64,7 +64,7 @@ resource "yandex_compute_instance" "platform-1" {
   }
 
   metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vm_db_ssh_root_key}"
+    serial-port-enable = var.vm_ssh["serial-port-enable"]
+    ssh-keys           = var.vm_ssh["ssh-key"]
   }
 }

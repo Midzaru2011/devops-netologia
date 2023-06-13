@@ -29,6 +29,18 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
+variable "vm_web_name" {
+  type = string
+  default = "web"
+  description = "Instance name web"
+}
+
+variable "vm_db_name" {
+  type = string
+  default = "db"
+  description = "Instance name db"
+}
+
 variable "vm_web_image" {
   type = string
   default = "ubuntu-2004-lts"
@@ -95,6 +107,15 @@ variable "vm_db_scheduling_policy" {
   type = bool
   default = true
   description = "scheduling_policy_db"
+}
+
+variable "vm_ssh" {
+  type = map
+  default = {
+    "serial-port-enable" = 1
+    "ssh-key" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILc4+LMgEeUZLBqtvUAi0lVLLJugXMSKd31Os62fwGGR zag1988@ubuntu-2204"
+  }
+  description = "ssh parametrs"
 }
 
 variable "vm_web_ssh_root_key" {
