@@ -118,11 +118,11 @@ variable "vm_ssh" {
   description = "ssh parametrs"
 }
 
-variable "vm_web_ssh_root_key" {
+/*variable "vm_web_ssh_root_key" {
   type        = string
   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILc4+LMgEeUZLBqtvUAi0lVLLJugXMSKd31Os62fwGGR zag1988@ubuntu-2204"
   description = "ssh-keygen -t ed25519"
-}
+}*/
 
 variable "vm_db_ssh_root_key" {
   type        = string
@@ -136,8 +136,8 @@ variable "vm_web_ssh_user" {
   description = "Root user for OS"
 }
 
-variable "vm_db_ssh_user" {
+/*variable "vm_db_ssh_user" {
   type = string
   default = "ubuntu"
   description = "Root user for OS"
-}
+}*/
