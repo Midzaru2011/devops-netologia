@@ -1,5 +1,6 @@
 
 resource "yandex_compute_instance" "web" {
+  depends_on = [ yandex_compute_instance.webcou ]
   for_each = { main = {cpu=4, ram=2, fraction=20}, replica = {cpu=4, ram=2, fraction=20} }
   name        = "${each.key}"
   platform_id = var.vm_web_platform
